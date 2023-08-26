@@ -1,8 +1,16 @@
 from utils import get_operations, sort_operations_by_date, get_five_executed, get_data
 
-list_1 = get_operations()
-list_2 = sort_operations_by_date(list_1)
-list_3 = get_five_executed(list_2)
-list_4 = get_data(list_3)
+# Получение списков словарей из файла и их преобразование
+transformation_json = get_operations()
 
+# Сортировка списка словарей по дате
+sort_by_date = sort_operations_by_date(transformation_json)
+
+# Получение 5 последних выполненных операций
+five_executed = get_five_executed(sort_by_date)
+
+# Получение окончательного варианта в нужном формате
+list_4 = get_data(five_executed)
+
+# Вывод 5 последних выполненных клиентом операций
 print(list_4)
